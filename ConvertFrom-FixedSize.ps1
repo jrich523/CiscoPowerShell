@@ -16,8 +16,8 @@ $data)
     function chopData{
     param($str,$indexes)
         $current = $indexes[0]
-        $indexes | select -skip 1 | %{ $str.substring($current,($_ - $current));$current = $_}
-        $str.substring($current)
+        $indexes | select -skip 1 | %{ $str.substring($current,($_ - $current)).trim();$current = $_}
+        $str.substring($current).trim()
     }
 
     $data = if($data -isnot [array]){$data -split "`n"|%{$_.trimend()}}
