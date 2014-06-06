@@ -35,6 +35,7 @@ $entry = ($mat -match $mac).trim()
 #$lengths=$spacing.split("+")
 $entry.substring($entry.LastIndexOf(" ")+1)
 }
+
 Function  Get-MacAddressTable{
     param($SwitchIP, $password)
     #test for plink
