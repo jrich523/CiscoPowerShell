@@ -81,7 +81,7 @@ function Connect-CSUnit
     }
     catch
     {
-        Write-Error "Unable to create session to $systemname" -ErrorAction Stop
+        Write-Error "Unable to create session to ${systemname}: $($_.exception.innerexception.message)" -ErrorAction Stop
     }
     try
     {
@@ -89,7 +89,7 @@ function Connect-CSUnit
     }
     catch
     {
-        Write-Error "Unable to open connection to $systemname" -ErrorAction Stop
+        Write-Error "Unable to open connection to ${systemname}: $($_.exception.innerexception.message)" -ErrorAction Stop
     }
 }
 
