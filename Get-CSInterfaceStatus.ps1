@@ -15,5 +15,7 @@ function Get-CSInterfaceStatus
     #TODO: inject type info and format file
     #TODO: split port when format is */*
 
-    Invoke-cscmd -Cmd "show int status" | ConvertFrom-FixedSize
+    # make sure each line is only seperated by a \n, so remove any \r
+    # if data is paged, seperate on the blank lines. might not be called for here but shouldnt hurt anything
+    ((Invoke-cscmd -Cmd "show int status") -replace "\r","") -split "\n\n" | ConvertFrom-FixedSize2
 }
