@@ -27,7 +27,8 @@
 
 
     #split data if needed
-    $data = if($data -isnot [array]){$data -split "`n"|%{$_.trimend()}}
+    $data = if($data -isnot [array]){$data -split "`n"}
+    $data = $data |%{$_.trimend()} | ? {$_} | ?{$_ -notmatch '^\s*C+\s*$'} 
 
     #grab rows and space locations
     $rowdata = $data | %{[pscustomobject]@{data=$_;Indexes=(SpaceIndex $_)}}
