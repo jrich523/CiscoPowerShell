@@ -17,5 +17,5 @@ function Get-CSInterfaceStatus
 
     # make sure each line is only seperated by a \n, so remove any \r
     # if data is paged, seperate on the blank lines. might not be called for here but shouldnt hurt anything
-    ((Invoke-cscmd -Cmd "show int status") -replace "\r","") -split "\n\n" | ConvertFrom-FixedSize2
+    ((Invoke-CSCMD -Cmd "show int status") -replace "\r","") -split "\n\n" | ConvertFrom-FixedSize2
 }
