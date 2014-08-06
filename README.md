@@ -1,6 +1,8 @@
 Cisco PowerShell Module
 =======================
 
+_Due to IOS differences it is not recommended you use this_
+
 connects in to a cisco unit to gather and parse data.
 
 IOS - 6.0(2)N1(2)
